@@ -1,0 +1,154 @@
+/* Instrument tokens for Feld Company.
+   Pigments stay put. Semantic tokens change with the ledger.
+   Components consume semantic tokens only. */
+
+:root,
+html[data-ledger="day"] {
+  --ink: #1a1916;
+  --ink-soft: #3a3834;
+  --bone: #efeae2;
+  --bone-2: #e4ddd2;
+  --paper: #f7f4ee;
+  --patina: #1f6f62;
+  --patina-deep: #16574d;
+  --brass: #8a6433;
+  --brass-ink: #6e4e24;
+  --phosphor: #d6ff4a;
+  --oxide: #9c3418;
+  --oxide-deep: #7c2c12;
+  --resin: #7a4e12;
+  --slate: #3e5366;
+  --night: #121410;
+  --night-2: #1c1e19;
+  --night-3: #262822;
+  --night-ink: #ebe6dc;
+  --night-muted: #b7b1a6;
+  --night-brass: #c6a36a;
+  --night-oxide: #f0b4a4;
+  --night-resin: #e2b15a;
+  --night-slate: #b7c7d6;
+  --fg-faint: #6b675f;
+
+  --bg: var(--paper);
+  --bg-raised: var(--bone);
+  --bg-sunken: var(--bone-2);
+  --fg: var(--ink);
+  --fg-muted: var(--ink-soft);
+  --line: color-mix(in srgb, var(--ink) 14%, transparent);
+  --line-strong: var(--ink);
+  --signal: var(--patina);
+  --signal-fill: var(--patina-deep);
+  --signal-on: var(--paper);
+  --danger: var(--oxide);
+  --danger-fill: var(--oxide-deep);
+  --danger-on: var(--paper);
+  --warning: var(--resin);
+  --info: var(--slate);
+  --ok: var(--patina-deep);
+  --focus: var(--patina-deep);
+  --tick: var(--brass);
+
+  color-scheme: light;
+}
+
+html[data-ledger="night"] {
+  --fg-faint: #8a857b;
+
+  --bg: var(--night);
+  --bg-raised: var(--night-2);
+  --bg-sunken: var(--night-3);
+  --fg: var(--night-ink);
+  --fg-muted: var(--night-muted);
+  --line: color-mix(in srgb, var(--night-ink) 16%, transparent);
+  --line-strong: var(--night-ink);
+  --signal: var(--phosphor);
+  --signal-fill: var(--phosphor);
+  --signal-on: var(--night);
+  --danger: var(--night-oxide);
+  --danger-fill: #6e2c22;
+  --danger-on: var(--night-ink);
+  --warning: var(--night-resin);
+  --info: var(--night-slate);
+  --ok: var(--phosphor);
+  --focus: var(--phosphor);
+  --tick: var(--night-brass);
+
+  color-scheme: dark;
+}
+
+:root {
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  --font-text: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  --font-ui: "Geist", "Schibsted Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+
+  --text-display: 92px;
+  --text-h1: 64px;
+  --text-h2: 40px;
+  --text-h3: 26px;
+  --text-lede: 22px;
+  --text-body: 18px;
+  --text-ui: 15px;
+  --text-small: 13px;
+  --text-index: 12px;
+  --text-num: 13px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 144px;
+  --space-11: 200px;
+
+  --radius-0: 0;
+  --radius-1: 2px;
+  --radius-2: 4px;
+  --radius-3: 8px;
+  --radius-round: 999px;
+
+  --shadow-plate: 0 1px 0 color-mix(in srgb, var(--fg) 8%, transparent),
+    0 24px 40px -28px color-mix(in srgb, var(--ink) 45%, transparent);
+  --shadow-chamber: 0 40px 80px -32px color-mix(in srgb, var(--ink) 65%, transparent);
+
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-quick: 120ms;
+  --dur-ui: 200ms;
+  --dur-page: 360ms;
+
+  --rail: 72px;
+  --mast: 72px;
+  --measure: 68ch;
+  --blade: 42ch;
+  --letter: 58ch;
+  --page: 1280px;
+  --page-home: 1440px;
+}
+
+@media (max-width: 959px) {
+  :root {
+    --text-display: 56px;
+    --text-h1: 40px;
+    --text-h2: 32px;
+    --text-h3: 24px;
+    --rail: 0px;
+  }
+}
+
+/* Focus is a property of the system, not of each component's mood. */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-quick: 1ms;
+    --dur-ui: 1ms;
+    --dur-page: 1ms;
+  }
+}
